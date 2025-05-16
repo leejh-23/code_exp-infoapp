@@ -1,20 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { createStaticNavigation } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+// Import local screens
+import HomeScreen from './screens/HomeScreen';
+import EventsScreen from './screens/EventsScreen';
+import ContactScreen from './screens/ContactScreen';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+// Navigator -----------------------------------------------
+const Tabs = createBottomTabNavigator({
+  screens: {
+    Home: HomeScreen,
+    Events: EventsScreen,
+    Contact: ContactScreen,
   },
 });
+
+// Root navigation component -------------------------------
+const Navigation = createStaticNavigation(Tabs);
+
+export default function App() {
+  return <Navigation />;
+}
