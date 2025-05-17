@@ -6,13 +6,13 @@ import contactsData from "../data.js";
 const ContactScreen = () => (
   <ScrollView style={{ backgroundColor: "#fff", flex: 1 }}>
     <View>
-      {/* loops through the contactsData array and for each contact, print out the name and title */}
+      {/* loops through the contactsData array and for each contact, return a list item containing the person's details */}
       {/* current item is contact, index is just the index num we r currently at */}
       {/* notice that there is a curly brace before the map function bc we are switching back to js */}
 
       {contactsData.map((contact, idx) => (
         <List.Item
-          key={contact.name + idx}
+          key={contact.name + idx} {/* keys must be unique */}
           title={contact.name}
           description={`${contact.title}, ${contact.company}`}
           left={() => (
