@@ -11,11 +11,9 @@ import ContactScreen from './screens/ContactScreen';
 const Tabs = createBottomTabNavigator({
   screens: { // associates the tabs with its relevant screen pages
     Home: HomeScreen,
-
-    // to get rid of the double headers bc it looks a little funny
     Events: {
       screen: EventsStack,
-      options: { headerShown: false }
+      options: { headerShown: false } // to get rid of the double headers bc it looks a little funny
     },
     Contact: ContactScreen,
   },
